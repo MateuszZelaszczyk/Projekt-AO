@@ -22,11 +22,37 @@
   padding: 10px;
 }
 .login-button-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns:50% 56%;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+.login-button-container >:nth-child(1){
+  grid-column-start: 1;
+  grid-column-end: 2;
+  
+}
+.login-button-container >:nth-child(3){
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+  align-items: center;
+  margin: 0;
+}
+.login-button-container >:nth-child(4){
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start:3;
+  grid-row-end:3;
+  background-color: rgb(49, 77, 168);
+  vertical-align: middle;
+}
+.login-button-container >:nth-child(5){
+  grid-column-start: 1;
+  grid-column-end: 3;
+  color: black;
+  background-color: antiquewhite;
 }
 
 .input-container {
@@ -57,20 +83,30 @@
   border-bottom: 1px solid #e74c3c;
 }
 .btn {
+  display: flex;
   background-color: #e74c3c;
   outline: none;
   border: 0;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 13px;
   text-transform: uppercase;
   margin-top: 50px;
   border-radius: 2px;
   cursor: pointer;
   position: relative;
   margin: 5px;
+  justify-content: center;
 }
 .input-container input:focus ~ label,
 .input-container input:valid ~ label {
   top: -12px;
   font-size: 12px;
+}
+.icon{
+  height: 20px;
+  padding: 4px;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+
 }
