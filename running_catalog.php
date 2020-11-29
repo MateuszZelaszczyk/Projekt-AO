@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,30 +25,12 @@
 
 
 
-    <?php
-
-    $connection=@mysql_connect('127.0.0.1:3306','root','')  //$connection=@mysql_connect('mysql.cba.pl','Administrator','Administrator123')
-    or die('zły adres lub login');
-    $db=@mysql_select_db('Baza zawodow',$connection);
-
-    $sql="select * from Baza zawodow";
-    $wynik=mysql_query($sql);
-
-    echo "Działa cholerstwo!"
-    // while($linia=mysql_fetch_array($wynik))
-    // {    
-    //         echo "Dystans: " . $linia['Dystans'];
-        
-        
-    // }
-
     
-    ?>
     <div class="running-container">
         
         <table class="running-table" >
             <thead class="running-table__head">
-                <tr>
+            <tr>
                     <th>
                         Data zawodów
                     </th>
@@ -65,6 +47,36 @@
                         Nazwa Imprezy
                     </th>
                 </tr>
+            <?php
+                $connection=@mysql_connect('127.0.0.1:3306','root','')  //$connection=@mysql_connect('mysql.cba.pl','Administrator','Administrator123')
+                    or die('zly adres lub login');
+                    $db=@mysql_select_db('baza zawodow',$connection);
+                    
+                $sql = "select * from `baza zawodow`";
+                $wynik = mysql_query($sql); 
+                
+                    while($linia=mysql_fetch_array($wynik))
+                    {
+                        echo '<tr>';
+                        echo    '<th>';
+                        echo   $linia[0];
+                        echo    '</th>';
+                        echo    '<th>';
+                        echo   $linia[1];
+                        echo    '</th>';
+                        echo    '<th>';
+                        echo   $linia[2];
+                        echo    '</th>';
+                        echo    '<th>';
+                        echo   $linia[3];
+                        echo    '</th>';
+                        echo    '<th>';
+                        echo   $linia[4];
+                        echo    '</th>';
+                        echo '</tr>';
+                    };
+            ?>
+                
             </thead>
             <tbody>
 
