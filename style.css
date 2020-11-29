@@ -2,22 +2,23 @@ body {
   box-sizing: border-box;
   margin: 0;
 }
-.running-container {
+.running-container,
+.favourite_container {
   background-color: #051622;
   height: 100vh;
   width: 100vw;
 }
-.running-table{
+.running-table {
   position: absolute;
   margin-top: 120px;
-  color:white;
+  color: white;
   border-collapse: collapse;
   width: 100vw;
 }
-th{
+th {
   border: 2px solid gray;
 }
 
-.running-table__head{
+.running-table__head {
   font-size: 20px;
 }
