@@ -12,13 +12,24 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
-  grid-template-areas: "nav_logo website_title . . search_box search_box";
+  grid-template-areas: "nav_logo website_title . nav_favourite search_box search_box";
 }
 .nav_logo {
   grid-area: nav_logo;
 }
 .website_title {
   grid-area: website_title;
+}
+.nav_favourite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  grid-area: nav_favourite;
+}
+.nav_favourite_img {
+  height: 50%;
 }
 .search_box {
   grid-area: search_box;
