@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="nav.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <SCRIPT type="text/javascript" language="JavaScript" SRC="scripts.js"></SCRIPT>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Running catalog</title>
 </head>
@@ -14,12 +15,22 @@
         <div class="website_title">
             <h1>Katalog biegania</h1>
         </div>
+        <div class="nav_favourite" onclick="location.href='./favourite_runs.php';">
+            <img class="nav_favourite_img" src="./images/star.svg" alt="favourite">
+        </div>
         <div class="search_box">
             <input type="text" placeholder="Jakiego biegu szukasz?">
             <i class="fas fa-search"></i>
         </div>
     </div>
-    <div class="running-container">
+    <button onclick="sortByCategory('name')">Sortuj po nazwie</button>
+    <button onclick="sortByCategory('distance')">Sortuj po dystansie</button>
+    <button onclick="sortByCategory('province')">Sortuj po województwie</button>
+    <button onclick="sortByCategory('city')">Sortuj po mieście</button>
+
+
+    
+    <!-- <div class="running-container">
         
         <table class="running-table" >
             <thead class="running-table__head">
@@ -39,12 +50,156 @@
                     <th>
                         Nazwa Imprezy
                     </th>
-                </tr>
-            </thead>
+                </tr> -->
+                
+                
+                <div id="running_container">
+                    
+                </div>
+                
+            <!-- <?php
+                $connection=@mysql_connect('127.0.0.1:3306','root','')  //$connection=@mysql_connect('mysql.cba.pl','Administrator','Administrator123')
+                    or die('zly adres lub login');
+                    $db=@mysql_select_db('baza zawodow',$connection);
+                    
+                $sql = "select * from `baza zawodow`";
+                $wynik = mysql_query($sql); 
+                
+                    while($linia=mysql_fetch_array($wynik))
+                    {
+                        echo '<tr>';
+                        echo    '<th>';
+                        echo   $linia[0];
+                        echo    '</th>';
+                        echo    '<th>';
+                        echo   $linia[1];
+                        echo    '</th>';
+                        echo    '<th>';
+                        echo   $linia[2];
+                        echo    '</th>';
+                        echo    '<th>';
+                        echo   $linia[3];
+                        echo    '</th>';
+                        echo    '<th>';
+                        echo   $linia[4];
+                        echo    '</th>';
+                        echo '</tr>';
+                    };
+            ?> -->
+                
+            <!-- </thead>
             <tbody>
 
-            </tbody class="running-table__body">
-        </table>
-    </div>
+            </tbody class="running-table__body"> -->
+        <!-- </table> -->
+    <!-- </div> -->
+    
+
+    <script>
+        let runningArray=
+[
+    {
+        name:'Cyborg - XV Śląski Maraton Noworoczny',
+        distance:42.2,
+        province:'Śląskie',
+        city:'Katowice',
+        date:new Date(2021, 1, 1),
+    },
+    {
+        name:'Szczeciński Bieg Noworoczny',
+        distance:5,
+        province:'Zachodniopomorskie',
+        city:'Szczecin',
+        date:new Date(2021, 1, 1),
+    },
+    {
+        name:'Świąteczno-Noworoczny Bieg Po Zdrowie',
+        distance:5.1,
+        province:'Śląskie',
+        city:'Krostoszowice',
+        date:new Date(2021, 1, 6),
+    },
+    {
+        name:'II Ultra Tatar',
+        distance:50.0,
+        province:'Lubelskie',
+        city:'Studzianka',
+        date:new Date(2021, 1, 9),
+    },
+    {
+        name:'VII Zimowy Maraton Bieszczadzki',
+        distance:43.0,
+        province:'Podkarpackie',
+        city:'Cisna',
+        date:new Date(2021, 1, 30),
+    },
+    {
+        name:'Zimowy Janosik',
+        distance:50.0,
+        province:'Małopolskie',
+        city:'Niedzica',
+        date:new Date(2021-01-29),
+    },
+    {
+        name:'50 km Ultra Janosik Zimowe Roztocze',
+        distance:50.0,
+        province:'Lubelskie',
+        city:'Szczebrzeszyn',
+        date:new Date(2021-01-09),
+    },
+    {
+        name:'Grand Prix Krakowa w Biegach Górskich',
+        distance:3.7,
+        province:'Małopolskie',
+        city:'Kraków',
+        date:new Date(2021-01-10),
+    },
+    {
+        name:'50 km Ultra Maraton Annogórski',
+        distance:50.0,
+        province:'Opolskie',
+        city:'Leśnica',
+        date:new Date(2021-01-17),
+    },
+    {
+        name:'Zimowy Półmaraton Gór Stołowych',
+        distance:21.1,
+        province:'Dolnośląskie',
+        city:'Radków',
+        date:new Date(2021-01-23),
+    },
+    
+];
+
+
+
+runningArray.sort(dynamicSort('name'))
+runningArray.forEach(myFunction);
+function myFunction(item)
+{
+    document.getElementById("running_container").innerHTML += "<div class='running_container_items'><div class='running_container_name'>"+item.name+"</div><div class='running_container_distance'>"+item.distance+"</div><div class='running_container_province'>"+item.province+"</div><div class='running_container_city'>"+item.city+"</div><div class='running_container_date'>"+item.date+"</div><button class='running_container_button'>Dodaj</button></div>"
+}
+function sortByCategory(category){
+    
+    runningArray.sort(dynamicSort(category))
+    document.getElementById("running_container").innerHTML = ""
+    runningArray.forEach(myFunction);
+}
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        
+        return result * sortOrder;
+    }
+    
+    
+}
+
+</script>
 </body>
 </html>
