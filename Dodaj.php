@@ -17,29 +17,36 @@
     $Login = $_POST['Login'];
     $sql = "select * from `baza uzytkownikow`";
     $wynik = mysqli_query($connection, $sql);
+    $powtorka = false;
     while ($linia = mysqli_fetch_array($wynik)) {
         if ($linia[1] == $Login) {
-            echo '<div class="Welcome">
-        <h1>Twój login jest już zajęty. Wybierz inny</h1>
-        <button class="Go" onclick="location.href=./registel_panel.php;">Powrót do rejestracji</button>
-    </div>';
-            break;
+            $powtorka = true;
         }
     }
-    echo '<div class="Welcome">
+    if ($powtorka) {
+        
+        ?>
+        <div class="Welcome">
+        <h1>Twój login jest już zajęty. Wybierz inny</h1>
+        <button class="Go" onclick="location.href='./register_panel.php';">Powrót do rejestracji</button>
+    </div>
+    <?php
+    } else {
+
+        $Mail = $_POST['Mail'];
+        $Haslo = $_POST['Haslo'];
+        $Tel = $_POST['Telefon'];
+        $Uro = $_POST['Urodziny'];
+        $sql = "INSERT INTO `baza uzytkownikow`( `Login`, `Mail`, `Hasło`, `Nr telefonu`, `Data urodzenia` ) VALUES( '" . $Login . "', '" . $Mail . "', '" . $Haslo . "', '" . $Tel . "', '" . $Uro . "')";
+        $wynik = mysqli_query($connection, $sql);
+        ?>
+        <div class="Welcome">
         <h1>Rejestracja przebiegła pomyślnie</h1>
-        <button class="Go" onclick="location.href=./running_catalog.html;">Przejdź do katalogu</button>
-    </div>';
-
-
-
-
-    $Mail = $_POST['Mail'];
-    $Haslo = $_POST['Haslo'];
-    $Tel = $_POST['Telefon'];
-    $Uro = $_POST['Urodziny'];
-    $sql = "INSERT INTO `baza uzytkownikow`( `Login`, `Mail`, `Hasło`, `Nr telefonu`, `Data urodzenia` ) VALUES( '" . $Login . "', '" . $Mail . "', '" . $Haslo . "', '" . $Tel . "', '" . $Uro . "')";
-    $wynik = mysqli_query($connection, $sql);
+        <button class="Go" onclick="location.href='./running_catalog.html';">Przejdź do katalogu</button>
+    </div>
+    <?php
+    }
+    
     ?>
 </body>
 
