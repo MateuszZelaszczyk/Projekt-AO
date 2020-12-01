@@ -5,8 +5,8 @@ body {
 .running-container,
 .favourite_container {
   background-color: #051622;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vh;
 }
 .running-table {
   margin-top: 15vh;
@@ -14,11 +14,10 @@ body {
   min-height: 100vh;
   max-width: 100vw;
 }
-.running-table_div{
+.running-table_div {
   padding-top: 130px;
 }
 .running-table {
-
   color: white;
   border-collapse: collapse;
   width: 100%;
@@ -33,36 +32,9 @@ th {
   color: rgb(110, 85, 39);
   font-weight: bolder;
 }
-.running-table__body{
+.running-table__body {
   font-size: 18px;
 }
-.btn{
-  background-color:  #1ba098;
-}
-
-.running_container_items {
-  width: 100vw;
-}
-.running_container_city,
-.running_container_name,
-.running_container_distance,
-.running_container_province,
-.running_container_date {
-  display: inline-block;
-  width: 18vw;
-  text-align: center;
-  vertical-align: middle;
-}
-.running_container_button {
-  width: 10vw;
-  background-color: #e74c3c;
-  outline: none;
-  border: 0;
-  color: white;
-  padding: 10px 8px;
-  text-transform: uppercase;
-  border-radius: 2px;
-  cursor: pointer;
-  position: relative;
-  justify-content: center;
+.btn {
+  background-color: #1ba098;
 }
