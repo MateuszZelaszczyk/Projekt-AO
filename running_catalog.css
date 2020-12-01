@@ -18,7 +18,14 @@
   background-color: #32383e;
   color: white;
 }
-
+.logout{
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 200px;
+  grid-column-end: 2;
+  grid-row-end: 2;
+  background-color: gray;
+}
 .sort_menu_option1 {
   grid-area: sort_menu_option1;
 }
@@ -79,7 +86,7 @@
   width: 10vw;
 }
 
-.running_container_button {
+.running_container_button,.logout {
   width: 10vw;
   background-color: #e74c3c;
   outline: none;
