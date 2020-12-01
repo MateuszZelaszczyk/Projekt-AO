@@ -39,6 +39,13 @@
         $Uro = $_POST['Urodziny'];
         $sql = "INSERT INTO `baza uzytkownikow`( `Login`, `Mail`, `Hasło`, `Nr telefonu`, `Data urodzenia` ) VALUES( '" . $Login . "', '" . $Mail . "', '" . $Haslo . "', '" . $Tel . "', '" . $Uro . "')";
         $wynik = mysqli_query($connection, $sql);
+        $sql2="CREATE TABLE `$Login` (
+            `Nazwa` VARCHAR(80) NOT NULL,
+            `Dystans` DECIMAL(10,1) NOT NULL,
+            `Województwo` VARCHAR(30),
+            `Miasto` VARCHAR(40),
+            `Data biegu` DATE
+            )";
         ?>
         <div class="Welcome">
         <h1>Rejestracja przebiegła pomyślnie</h1>
