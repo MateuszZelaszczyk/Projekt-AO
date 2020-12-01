@@ -14,7 +14,7 @@
     <div class="container-form">
         <form class="register-form" id="form" action="Dodaj.php" method="POST">
             <H2>Panel rejestracji</H2>
-            <label>Login(minimum 4 znaki):*</label> <input class="inp" id="log" name="Login" required="">
+            <label>Login(minimum):*</label> <input class="inp" id="log" name="Login" required="">
             <br>
             <label>E-mail:*</label><input type="email" class="inp" name="Mail" required="">
             <br>
