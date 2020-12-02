@@ -1,5 +1,5 @@
 .sort_menu {
-  width: 100vw;
+  width: 100%;
   display: grid;
   grid-template-columns: 10vw 26vw 10vw 18vw 18vw 18vw;
   grid-template-rows: 1fr;
@@ -80,7 +80,7 @@
 }
 
 .running_container_button,
-.logout {
+.logout,.nav_favourite-back {
   width: 10vw;
   background-color: #e74c3c;
   outline: none;
@@ -92,4 +92,10 @@
   cursor: pointer;
   position: relative;
   justify-content: center;
+}
+.nav_favourite-back{
+  background-color: rgb(67, 192, 123);
+  height: 42px;
+  margin-top: 10px;
+  margin-left: 100px;
 }
