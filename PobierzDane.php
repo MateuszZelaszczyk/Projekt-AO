@@ -12,6 +12,7 @@ $haslo=$_POST["Haslo"];
        if($linia[1]==$login && $linia[3]==$haslo){
            $jest=true;
            $_SESSION['mylog'] = true;
+           
        }
     }
     $data[2]=$jest;

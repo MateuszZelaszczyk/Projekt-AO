@@ -1,11 +1,12 @@
 <?php
 session_start();
-if($_SESSION['mylog']==false){
-	header("Location: ./index.php");
+if ($_SESSION['mylog'] == false) {
+    header("Location: ./index.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,16 +17,24 @@ if($_SESSION['mylog']==false){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Running catalog</title>
 </head>
+
 <body>
+    <?php
+     $Log = $_GET['login']
+    ?>
     <div class="nav">
+
         <img class="nav_logo" src="./images/athletics.svg" alt="logo">
         <button class="logout" onclick="location.href='./LogOut.php';">Wyloguj</button>
         <div class="website_title">
             <h1>Katalog biegania</h1>
         </div>
-        <div class="nav_favourite" onclick="location.href='./favourite_runs.php';">
-            <img class="nav_favourite_img" src="./images/star.svg" alt="favourite">
-        </div>
+        <form action="./favourite_runs.php" class="nav_favourite-form">
+            <button type="submit" class="nav_favourite">
+                <input type="hidden" id="login" name="login" value=<?php echo $Log ?>>
+                <img class="nav_favourite_img" src="./images/star.svg" alt="favourite">
+            </button>
+        </form>
         <div class="search_box">
             <input onkeyup="searchBoxFilter()" class="search_box_input" type="text" placeholder="Jakiego biegu szukasz?">
             <i class="fas fa-search"></i>
@@ -33,18 +42,29 @@ if($_SESSION['mylog']==false){
     </div>
     <div class="sort_menu">
         <div class="sort_menu_option0"></div>
-        <div onclick="sortByCategory('name')" class="sort_menu_option1 sort_menu_option"><h3>Nazwa</h3></div>
-        <div onclick="sortByCategory('distance')" class="sort_menu_option2 sort_menu_option"><h3>Dystans</h3></div>
-        <div onclick="sortByCategory('province')" class="sort_menu_option3 sort_menu_option"><h3>Województwo</h3></div>
-        <div onclick="sortByCategory('city')" class="sort_menu_option4 sort_menu_option"><h3>Miasto</h3></div>
-        <div onclick="sortByCategory('date')"  class="sort_menu_option5 sort_menu_option"><h3>Data</h3></div>
-    </div>
-        <div id="running_container">
-                    
+        <div onclick="sortByCategory('name')" class="sort_menu_option1 sort_menu_option">
+            <h3>Nazwa</h3>
         </div>
+        <div onclick="sortByCategory('distance')" class="sort_menu_option2 sort_menu_option">
+            <h3>Dystans</h3>
+        </div>
+        <div onclick="sortByCategory('province')" class="sort_menu_option3 sort_menu_option">
+            <h3>Województwo</h3>
+        </div>
+        <div onclick="sortByCategory('city')" class="sort_menu_option4 sort_menu_option">
+            <h3>Miasto</h3>
+        </div>
+        <div onclick="sortByCategory('date')" class="sort_menu_option5 sort_menu_option">
+            <h3>Data</h3>
+        </div>
+    </div>
+    <div id="running_container">
+
+    </div>
     <script>
         runningArray.sort(dynamicSort('name'))
         runningArray.forEach(myFunction);
     </script>
 </body>
+
 </html>

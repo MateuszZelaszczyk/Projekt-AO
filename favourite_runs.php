@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if($_SESSION['mylog']==false){
@@ -10,21 +11,47 @@ if($_SESSION['mylog']==false){
     <meta charset="UTF-8">
     <link rel="stylesheet" href="nav.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="running_catalog.css" type="text/css" />
+    <link rel="stylesheet" href="favourite.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <SCRIPT type="text/javascript" language="JavaScript" SRC="scripts.js"></SCRIPT>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favourite Runs</title>
 </head>
 <body>
     <div class="nav">
         <img class="nav_logo" src="./images/athletics.svg" onclick="location.href='./running_catalog.php';" alt="logo">
+        <button class="logout" onclick="location.href='./LogOut.php';">Wyloguj</button>
         <div class="website_title">
-            <h1>Katalog biegania</h1>
+            <h1>Ulubione</h1>
         </div>
-        <div class="nav_favourite" onclick="location.href='./favourite_runs.php';">
-            <img class="nav_favourite_img" src="./images/star.svg" alt="favourite">
-        </div>
+        <button class="nav_favourite-back" onclick="history.back();" >
+            Powrót do katalogu
+        </button>
+    </div>
     </div>
     <div class="favourite_container">
-
+    <table class="fa_run">
+        <thead>
+            <tr>
+              <td>
+                 Miejsce
+              </td>
+              <td>
+                 Województwo
+              </td> 
+              <td>
+                 Dystans
+              </td> 
+              <td>
+                 Nazwa imprezy 
+              </td> 
+              <td>
+                 Data 
+              </td>  
+            </tr>
+        </thead>
+    </table>
     </div>
 </body>
 </html>

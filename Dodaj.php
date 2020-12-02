@@ -27,12 +27,12 @@ session_start();
         }
     }
     if ($powtorka) {
-        
-        ?>
+
+    ?>
         <div class="Welcome">
-        <h1>Twój login jest już zajęty. Wybierz inny</h1>
-        <button class="Go" onclick="location.href='./register_panel.php';">Powrót do rejestracji</button>
-    </div>
+            <h1>Twój login jest już zajęty. Wybierz inny</h1>
+            <button class="Go" onclick="location.href='./register_panel.php';">Powrót do rejestracji</button>
+        </div>
     <?php
     } else {
         $_SESSION['mylog'] = true;
@@ -43,22 +43,27 @@ session_start();
         $Uro = $_POST['Urodziny'];
         $sql = "INSERT INTO `baza uzytkownikow`( `Login`, `Mail`, `Hasło`, `Nr telefonu`, `Data urodzenia` ) VALUES( '" . $Login . "', '" . $Mail . "', '" . $Haslo . "', '" . $Tel . "', '" . $Uro . "')";
         $wynik = mysqli_query($connection, $sql);
-        $sql2="CREATE TABLE `$Login` (
+        $sql2 = "CREATE TABLE `$Login` (
             `Nazwa` VARCHAR(80) NOT NULL,
             `Dystans` DECIMAL(10,1) NOT NULL,
             `Województwo` VARCHAR(30),
             `Miasto` VARCHAR(40),
             `Data biegu` DATE
             )";
-        ?>
+        $connection->query($sql2)
+    ?>
         <div class="Welcome">
-        <h1>Rejestracja przebiegła pomyślnie</h1>
-        <button class="Go" onclick="location.href='./running_catalog.php';">Przejdź do katalogu</button>
-    </div>
+            <h1>Rejestracja przebiegła pomyślnie</h1>
+            <form class="btn-box_form" action="./running_catalog.php">
+                <input type="hidden" id="login" name="login" value=<?php echo $Login?>>
+                <button class="Go">Przejdź do katalogu</button>
+            </form>
+        </div>
     <?php
     }
-    
+
     ?>
+    
 </body>
 
 </html>
