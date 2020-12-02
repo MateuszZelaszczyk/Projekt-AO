@@ -1,4 +1,5 @@
 <?php
+session_start();
 $login=$_POST["Login"];
 $haslo=$_POST["Haslo"];
     $connection = @mysqli_connect('127.0.0.1:3306', 'root', '', 'baza')
@@ -10,6 +11,7 @@ $haslo=$_POST["Haslo"];
     while ($linia = mysqli_fetch_array($wynik)){
        if($linia[1]==$login && $linia[3]==$haslo){
            $jest=true;
+           $_SESSION['mylog'] = true;
        }
     }
     $data[2]=$jest;

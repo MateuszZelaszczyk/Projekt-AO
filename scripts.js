@@ -11,7 +11,7 @@ function Sprawdz() {
         dataType: "JSON",
         success: function (data) {
             if(data[2]==true){
-              location.href="running_catalog.html"   
+              location.href="running_catalog.php"   
             }
             else{
                 alert("Niepoprawny login lub hasło")

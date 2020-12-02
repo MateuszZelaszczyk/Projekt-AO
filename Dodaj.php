@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +17,7 @@
     $connection = @mysqli_connect('127.0.0.1:3306', 'root', '', 'baza')
         or die('zły adres lub login');
     mysqli_set_charset($connection, 'UTF8');
-    $Login = $_POST['Login'];
+    $Login = $_POST['mylog'];
     $sql = "select * from `baza uzytkownikow`";
     $wynik = mysqli_query($connection, $sql);
     $powtorka = false;
@@ -32,6 +35,7 @@
     </div>
     <?php
     } else {
+        $_SESSION['mylog'] = true;
 
         $Mail = $_POST['Mail'];
         $Haslo = $_POST['Haslo'];
@@ -49,7 +53,7 @@
         ?>
         <div class="Welcome">
         <h1>Rejestracja przebiegła pomyślnie</h1>
-        <button class="Go" onclick="location.href='./running_catalog.html';">Przejdź do katalogu</button>
+        <button class="Go" onclick="location.href='./running_catalog.php';">Przejdź do katalogu</button>
     </div>
     <?php
     }

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if($_SESSION['mylog']==false){
+	header("Location: ./index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -13,6 +19,7 @@
 <body>
     <div class="nav">
         <img class="nav_logo" src="./images/athletics.svg" alt="logo">
+        <button class="logout" onclick="location.href='./LogOut.php';">Wyloguj</button>
         <div class="website_title">
             <h1>Katalog biegania</h1>
         </div>

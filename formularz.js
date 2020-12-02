@@ -20,7 +20,7 @@ window.onload = function () {
 
 function Sprawdz() {
     var dobrze = true;
-    var obj1=document.getElementById("log");
+    var obj1=document.getElementById("mylog");
     if(obj1.value.length<4){
         obj1.style.background = "#e74c3c";
         dobrze = false;
