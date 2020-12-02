@@ -440,7 +440,6 @@ let runningArray=
 
 function myFunction(item)
 {
-    console.log(item.date);
     document.getElementById("running_container").innerHTML += "<div class='running_container_items'><button class='running_container_button'>Dodaj</button><div class='running_container_name'>"+item.name+"</div><div class='running_container_distance'>"+item.distance+"</div><div class='running_container_province'>"+item.province+"</div><div class='running_container_city'>"+item.city+"</div><div class='running_container_date'>"+formatDate(item.date)+"</div></div>"
 }
 function sortByCategory(category){
@@ -476,4 +475,26 @@ function formatDate(date) {
             
     return [year, month, day].join('-');
 }
-
+function searchBoxFilter(){
+    
+    let x=document.getElementsByClassName("search_box_input")[0].value
+    let newArray=[];
+    let k=0;
+    for ( i=0;i<runningArray.length;i++){
+        item=runningArray[i].name;
+        let correct=0;
+        for(j=0;j<x.length;j++){
+            
+            if(item[j]===x[j]){
+                correct++;
+            }
+        }
+        if(correct==x.length){
+            newArray[k]=runningArray[i];
+            k++;
+        }
+        correct=0
+    };
+    document.getElementById("running_container").innerHTML = "";
+    newArray.forEach(myFunction);
+}
