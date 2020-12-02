@@ -20,7 +20,8 @@ if ($_SESSION['mylog'] == false) {
 
 <body>
     <?php
-     $Log = $_GET['login']
+     $Log = $_COOKIE['log']
+
     ?>
     <div class="nav">
 

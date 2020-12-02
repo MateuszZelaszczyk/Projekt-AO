@@ -36,7 +36,7 @@ session_start();
     <?php
     } else {
         $_SESSION['mylog'] = true;
-
+        setcookie('log', $Login);
         $Mail = $_POST['Mail'];
         $Haslo = $_POST['Haslo'];
         $Tel = $_POST['Telefon'];
@@ -54,16 +54,13 @@ session_start();
     ?>
         <div class="Welcome">
             <h1>Rejestracja przebiegła pomyślnie</h1>
-            <form class="btn-box_form" action="./running_catalog.php">
-                <input type="hidden" id="login" name="login" value=<?php echo $Login?>>
-                <button class="Go">Przejdź do katalogu</button>
-            </form>
+            <button class="Go" onclick="location.href='./running_catalog.php';">Przejdź do katalogu</button>
         </div>
     <?php
     }
 
     ?>
-    
+
 </body>
 
 </html>
