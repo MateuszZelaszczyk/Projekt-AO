@@ -13,9 +13,8 @@ $haslo=$_POST["Haslo"];
            $jest=true;
            $_SESSION['mylog'] = true;
            setcookie('log',$login);
-           
        }
     }
     $data[2]=$jest;
     echo json_encode($data);
-    ?>
+?>
