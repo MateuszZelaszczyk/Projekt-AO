@@ -47,6 +47,16 @@
   margin: 0;
   padding: 10px 0;
 }
+.sort_menu_yellow,
+.sort_menu_yellow h3 {
+  color: #fddb3a !important;
+}
+.sort_menu_yellow:hover {
+  background-color: #fddb3a !important;
+}
+.sort_menu_yellow h3:hover {
+  color: #32383e !important;
+}
 .sort_menu h3:hover {
   color: white;
 }
@@ -80,7 +90,8 @@
 }
 
 .running_container_button,
-.logout,.nav_favourite-back {
+.logout,
+.nav_favourite-back {
   width: 10vw;
   background-color: #e74c3c;
   outline: none;
@@ -93,7 +104,12 @@
   position: relative;
   justify-content: center;
 }
-.nav_favourite-back{
+.button-yellow {
+  background-color: #fddb3a;
+  color: #32383e;
+  font-weight: bold;
+}
+.nav_favourite-back {
   background-color: rgb(67, 192, 123);
   height: 42px;
   margin-top: 10px;
