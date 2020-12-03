@@ -1,7 +1,7 @@
 .sort_menu {
   width: 100%;
   display: grid;
-  grid-template-columns: 10vw 26vw 10vw 18vw 18vw 18vw;
+  grid-template-columns: 10% 26% 10% 18% 18% 18%;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas: "sort_menu_option0 sort_menu_option1 sort_menu_option2 sort_menu_option3 sort_menu_option4 sort_menu_option5";
@@ -63,7 +63,7 @@
 }
 
 .running_container_items {
-  width: 100vw;
+  width: 100%;
   background-color: #32383e;
   border-top: 1px solid white;
   color: white;
@@ -74,16 +74,16 @@
 .running_container_province,
 .running_container_date {
   display: inline-block;
-  width: 18vw;
+  width: 18%;
   text-align: center;
   vertical-align: middle;
   padding: 10px 0;
 }
 .running_container_name {
-  width: 26vw;
+  width: 26%;
 }
 .running_container_distance {
-  width: 10vw;
+  width: 10%;
 }
 
 .running_container_button,
@@ -100,6 +100,9 @@
   cursor: pointer;
   position: relative;
   justify-content: center;
+}
+.running_container_button {
+  width: 10% !important;
 }
 .button-yellow {
   background-color: #fddb3a;
