@@ -36,7 +36,7 @@ if ($_SESSION['mylog'] == false) {
     <div class="nav">
 
         <img class="nav_logo" src="./images/athletics.svg" alt="logo">
-        <button class="logout" onclick="location.href='./LogOut.php';">Wyloguj</button>
+        <button class="logout" onclick="location.href='./LogOut.php';">Wyloguj się</button>
         <div class="website_title">
             <h1>Katalog biegania</h1>
         </div>

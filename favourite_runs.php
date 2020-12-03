@@ -22,7 +22,7 @@ if ($_SESSION['mylog'] == false) {
 <body>
     <div class="nav">
         <img class="nav_logo" src="./images/athletics.svg" onclick="location.href='./running_catalog.php';" alt="logo">
-        <button class="logout" onclick="location.href='./LogOut.php';">Wyloguj</button>
+        <button class="logout" onclick="location.href='./LogOut.php';">Wyloguj się</button>
         <div class="website_title">
             <h1>Ulubione</h1>
         </div>

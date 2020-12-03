@@ -13,11 +13,8 @@
 }
 .logout {
   height: 40px;
-  margin-top: 10px;
-  margin-left: 200px;
-  grid-column-end: 2;
-  grid-row-end: 2;
-  background-color: gray;
+  margin-left: auto;
+  background-color: #1d1919 !important;
 }
 .sort_menu_option1 {
   grid-area: sort_menu_option1;
@@ -111,7 +108,8 @@
 }
 .nav_favourite-back {
   background-color: rgb(67, 192, 123);
-  height: 42px;
-  margin-top: 10px;
-  margin-left: 100px;
+  position: absolute;
+  right: 0;
+  height: 40px;
+  margin-top: 40px;
 }
