@@ -32,28 +32,24 @@ if ($_SESSION['mylog'] == false) {
     </div>
     </div>
     <div class="favourite_container">
-        <table class="fa_run">
-            <thead class="fa_run-head">
-                <tr>
-                    <td>
-                        Nazwa imprezy
-                    </td>
-                    <td>
-                        Dystans
-                    </td>
-                    <td>
-                        Województwo
-                    </td>
-                    <td>
-                        Miasto
-                    </td>
-                    <td>
-                        Data
-                    </td>
-                </tr>
-            </thead>
-            <tbody class='fa_run-body'>
-                
+            <div class="sort_menu">
+        <div class="sort_menu_option0"></div>
+        <div class="sort_menu_option1 sort_menu_option sort_menu_yellow">
+            <h3>Nazwa</h3>
+        </div>
+        <div class="sort_menu_option2 sort_menu_option sort_menu_yellow">
+            <h3>Dystans</h3>
+        </div>
+        <div class="sort_menu_option3 sort_menu_option sort_menu_yellow">
+            <h3>Województwo</h3>
+        </div>
+        <div class="sort_menu_option4 sort_menu_option sort_menu_yellow">
+            <h3>Miasto</h3>
+        </div>
+        <div class="sort_menu_option5 sort_menu_option sort_menu_yellow">
+            <h3>Data</h3>
+        </div>
+    </div>
                     <?php
                     $login=strtolower( $_GET['login']);
                     $connection = @mysqli_connect('127.0.0.1:3306', 'root', '', 'baza')
@@ -62,18 +58,14 @@ if ($_SESSION['mylog'] == false) {
                     $sql = "select * from `$login`";
                     $wynik = mysqli_query($connection, $sql);
                     while ($linia = mysqli_fetch_array($wynik)){
-                        echo"<tr class='fa_run-body-tr'>";
-                        echo "<td>". $linia[0]. "</td>";
-                        echo "<td>". $linia[1]. "</td>";
-                        echo "<td>". $linia[2]. "</td>";
-                        echo "<td>". $linia[3]. "</td>";
-                        echo "<td>". $linia[4]. "</td>";
-                        echo "</tr>";
+                        echo "<div class='running_container_items'>";
+                        echo    "<button class='running_container_button button-yellow'>Usuń</button><div class='running_container_name'>$linia[0]";
+                        echo    "</div><div class='running_container_distance'>$linia[1]";
+                        echo    "</div><div class='running_container_province'>$linia[2]";
+                        echo    "</div><div class='running_container_city'>$linia[3]";
+                        echo    "</div><div class='running_container_date'>$linia[4]</div></div>";
                     }
                     ?>
-                
-            </tbody>
-        </table>
     </div>
 </body>
 
