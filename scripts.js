@@ -1,4 +1,3 @@
-
 function Sprawdz() {
     var Log = document.getElementById("mylog");
     var mHaslo = document.getElementById("mypass");
@@ -17,10 +16,8 @@ function Sprawdz() {
                 alert("Niepoprawny login lub hasło")
             }
         },
-
     })
 }
-
 
 let runningArray =
     [
@@ -50,7 +47,7 @@ let runningArray =
         },
         {
             name: 'II Ultra Tatar',
-            distance: 50.0,
+            distance: 50,
             province: 'Lubelskie',
             city: 'Studzianka',
             date: new Date("January 9, 2021"),
@@ -436,10 +433,41 @@ let runningArray =
 
     ];
 
-
-
 function myFunction(item) {
-    document.getElementById("running_container").innerHTML += "<div class='running_container_items'><button class='running_container_button'>Dodaj</button><div class='running_container_name'>" + item.name + "</div><div class='running_container_distance'>" + item.distance + "</div><div class='running_container_province'>" + item.province + "</div><div class='running_container_city'>" + item.city + "</div><div class='running_container_date'>" + formatDate(item.date) + "</div></div>"
+    document.getElementById("running_container").innerHTML += `<div key=${item.id} class='running_container_items'>
+    <button onclick='addRunToFavourites(value)' value=${item.id} 
+    class='running_container_button'>Dodaj</button><div class='running_container_name'>${item.name}
+    </div><div class='running_container_distance'>${item.distance}
+    </div><div class='running_container_province'>${item.province}
+    </div><div class='running_container_city'>${item.city}
+    </div><div class='running_container_date'>${formatDate(item.date)}</div></div>`;
+}
+function addRunToFavourites(id){
+    for(i in runningArray){
+        if(id==runningArray[i].id){
+            console.log(runningArray[i]);
+            let name=runningArray[i].name;
+            let distance=runningArray[i].distance;
+            let province=runningArray[i].province;
+            let city=runningArray[i].city;
+            let date=runningArray[i].date;
+            date=formatDate(date);
+            document.cookie=`name=${name}`;
+            document.cookie=`distance=${distance}`;
+            document.cookie=`province=${province}`;
+            document.cookie=`city=${city}`;
+            document.cookie=`date=${date}`;
+            // $.ajax({
+            //     url: "AddToFavourite.php",
+            //     method: "POST",
+            //   });
+            $.ajax({
+                url: "AddToFavourite.php",
+                type: "Post",
+            })
+        }
+    }
+    
 }
 function sortByCategory(category) {
 
