@@ -14,6 +14,16 @@ if ($_SESSION['mylog'] == false) {
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="running_catalog.css" type="text/css" />
     <SCRIPT type="text/javascript" language="JavaScript" SRC="scripts.js"></SCRIPT>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Running catalog</title>
 </head>

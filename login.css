@@ -11,7 +11,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, var(--dark) 50%, var(--green) 50%);
+  /* background: linear-gradient(45deg, var(--dark) 50%, var(--green) 50%); */
+  background: url("./images/background.PNG");
+  background-size: cover;
 }
 .login-box {
   display: flex;
@@ -22,6 +24,8 @@
   height: auto;
   border-radius: 20%;
   color: var(--light);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
 }
 .login-img {
   width: 40%;
