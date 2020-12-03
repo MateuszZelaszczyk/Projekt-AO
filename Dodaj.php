@@ -35,6 +35,7 @@ session_start();
         </div>
     <?php
     } else {
+        
         $_SESSION['mylog'] = true;
         setcookie('log', $Login);
         $Mail = $_POST['Mail'];
@@ -43,13 +44,14 @@ session_start();
         $Uro = $_POST['Urodziny'];
         $sql = "INSERT INTO `baza uzytkownikow`( `Login`, `Mail`, `Hasło`, `Nr telefonu`, `Data urodzenia` ) VALUES( '" . $Login . "', '" . $Mail . "', '" . $Haslo . "', '" . $Tel . "', '" . $Uro . "')";
         $wynik = mysqli_query($connection, $sql);
+        mysqli_set_charset($connection, 'UTF8');
         $sql2 = "CREATE TABLE `$Login` (
             `Nazwa` VARCHAR(80) NOT NULL,
             `Dystans` DECIMAL(10,1) NOT NULL,
             `Województwo` VARCHAR(30),
             `Miasto` VARCHAR(40),
             `Data biegu` DATE
-            )";
+            )ENGINE = MYISAM DEFAULT CHARSET = 'utf8' DEFAULT COLLATE = 'utf8_unicode_ci';";
         $connection->query($sql2)
     ?>
         <div class="Welcome">
