@@ -51,7 +51,7 @@ if ($_SESSION['mylog'] == false) {
         </div>
     </div>
                     <?php
-                    $login=strtolower( $_GET['login']);
+                    $login= $_GET['login'];
                     $connection = @mysqli_connect('127.0.0.1:3306', 'root', '', 'baza')
                         or die('zły adres lub login');
                     mysqli_set_charset($connection, 'UTF8');
