@@ -17,7 +17,7 @@ function Sprawdz() {
             }
         },
     })
-}
+};
 
 let runningArray =
     [
@@ -442,6 +442,17 @@ function myFunction(item) {
     </div><div class='running_container_city'>${item.city}
     </div><div class='running_container_date'>${formatDate(item.date)}</div></div>`;
 }
+function deleteRunFromFavourites(value){
+    document.cookie=`id=${value}`;
+    console.log(`running_container_items ${value}`);
+    $(`.${value}`).remove();
+    $.ajax({
+        url: "DeleteFromFavourites.php",
+        type: "Post",
+    })
+
+}
+
 function addRunToFavourites(id){
     for(i in runningArray){
         if(id==runningArray[i].id){
@@ -451,23 +462,20 @@ function addRunToFavourites(id){
             let province=runningArray[i].province;
             let city=runningArray[i].city;
             let date=runningArray[i].date;
+            let id=runningArray[i].id;
             date=formatDate(date);
             document.cookie=`name=${name}`;
             document.cookie=`distance=${distance}`;
             document.cookie=`province=${province}`;
             document.cookie=`city=${city}`;
             document.cookie=`date=${date}`;
-            // $.ajax({
-            //     url: "AddToFavourite.php",
-            //     method: "POST",
-            //   });
+            document.cookie=`id=${id}`;
             $.ajax({
                 url: "AddToFavourite.php",
                 type: "Post",
             })
         }
     }
-    
 }
 function sortByCategory(category) {
 
