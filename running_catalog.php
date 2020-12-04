@@ -30,8 +30,7 @@ if ($_SESSION['mylog'] == false) {
 
 <body>
     <?php
-     $Log = $_COOKIE['log']
-
+     $Log = $_COOKIE['log'];
     ?>
     <div class="nav">
 
