@@ -13,6 +13,11 @@ if ($_SESSION['mylog'] == false) {
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="running_catalog.css" type="text/css" />
     <link rel="stylesheet" href="favourite.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <SCRIPT type="text/javascript" language="JavaScript" SRC="scripts.js"></SCRIPT>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,19 +56,19 @@ if ($_SESSION['mylog'] == false) {
         </div>
     </div>
                     <?php
-                    $login=strtolower( $_GET['login']);
+                    $login=$_GET['login'];
                     $connection = @mysqli_connect('127.0.0.1:3306', 'root', '', 'baza')
                         or die('zły adres lub login');
                     mysqli_set_charset($connection, 'UTF8');
                     $sql = "select * from `$login`";
                     $wynik = mysqli_query($connection, $sql);
                     while ($linia = mysqli_fetch_array($wynik)){
-                        echo "<div class='running_container_items'>";
-                        echo    "<button class='running_container_button button-yellow'>Usuń</button><div class='running_container_name'>$linia[0]";
-                        echo    "</div><div class='running_container_distance'>$linia[1]";
-                        echo    "</div><div class='running_container_province'>$linia[2]";
-                        echo    "</div><div class='running_container_city'>$linia[3]";
-                        echo    "</div><div class='running_container_date'>$linia[4]</div></div>";
+                        echo "<div class='running_container_items $linia[0]'>";
+                        echo    "<button onclick='deleteRunFromFavourites(value)' value=$linia[0]  class='running_container_button button-yellow'>Usuń</button><div class='running_container_name'>$linia[1]";
+                        echo    "</div><div class='running_container_distance'>$linia[2]";
+                        echo    "</div><div class='running_container_province'>$linia[3]";
+                        echo    "</div><div class='running_container_city'>$linia[4]";
+                        echo    "</div><div class='running_container_date'>$linia[5]</div></div>";
                     }
                     ?>
     </div>
