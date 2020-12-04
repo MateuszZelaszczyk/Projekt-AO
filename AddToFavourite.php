@@ -8,11 +8,12 @@
     $Province = $_COOKIE['province'];
     $City = $_COOKIE['city'];
     $Date = $_COOKIE['date'];
+    $Id=$_COOKIE['id'];
     $sql = "select * from `$Login`";
     $wynik = mysqli_query($connection, $sql);
     $powtorka = false;
     while ($linia = mysqli_fetch_array($wynik)) {
-        if ($linia[0] == $Name) {
+        if ($linia[1] == $Name  && $linia[0] == $Id) {
             $powtorka = true;
         }
     }
@@ -20,7 +21,7 @@
         
     }
     else{
-        $sql="INSERT INTO `$Login`(`Nazwa`, `Dystans`, `Województwo`, `Miasto`, `Data biegu`) VALUES ( '" . $Name . "', '" . $Distance . "', '" . $Province . "', '" . $City . "', '" . $Date . "')";
+        $sql="INSERT INTO `$Login`(`Id`,`Nazwa`, `Dystans`, `Województwo`, `Miasto`, `Data biegu`) VALUES ( '" . $Id . "','" . $Name . "', '" . $Distance . "', '" . $Province . "', '" . $City . "', '" . $Date . "')";
         $wynik = mysqli_query($connection, $sql);
     } 
 ?>
