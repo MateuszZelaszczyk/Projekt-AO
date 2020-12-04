@@ -46,6 +46,7 @@ session_start();
         $wynik = mysqli_query($connection, $sql);
         mysqli_set_charset($connection, 'UTF8');
         $sql2 = "CREATE TABLE `$Login` (
+            `Id` int(11) ,
             `Nazwa` VARCHAR(80) NOT NULL,
             `Dystans` DECIMAL(10,1) NOT NULL,
             `Województwo` VARCHAR(30),
