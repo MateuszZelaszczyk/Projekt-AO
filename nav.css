@@ -25,13 +25,16 @@
 }
 .nav_favourite {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 15vh;
   border: none;
   grid-area: nav_favourite;
   background-color: #1ba098;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  outline: none;
 }
 .nav_favourite_img {
   height: 50%;
