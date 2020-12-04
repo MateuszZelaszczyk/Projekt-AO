@@ -90,7 +90,7 @@
 .logout,
 .nav_favourite-back {
   width: 10vw;
-  background-color: #e74c3c;
+  background-color: rgb(231, 76, 60);
   outline: none;
   border: 0;
   color: white;
@@ -101,13 +101,19 @@
   position: relative;
   justify-content: center;
 }
+.running_container_button:hover {
+  background: rgba(231, 76, 60, 0.8);
+}
 .running_container_button {
   width: 10% !important;
 }
 .button-yellow {
-  background-color: #fddb3a;
+  background-color: rgb(253, 219, 58);
   color: #32383e;
   font-weight: bold;
+}
+.button-yellow:hover {
+  background: rgba(253, 219, 58, 0.8);
 }
 .nav_favourite-back {
   background-color: rgb(67, 192, 123);
