@@ -60,7 +60,7 @@ if ($_SESSION['mylog'] == false) {
                     $connection = @mysqli_connect('127.0.0.1:3306', 'root', '', 'baza')
                         or die('zły adres lub login');
                     mysqli_set_charset($connection, 'UTF8');
-                    $sql = "select * from `$login`";
+                    $sql = "select * from `$login` order by `Data biegu`";
                     $wynik = mysqli_query($connection, $sql);
                     while ($linia = mysqli_fetch_array($wynik)){
                         echo "<div class='running_container_items $linia[0]'>";
