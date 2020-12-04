@@ -38,11 +38,7 @@ session_start();
                     <button type="button" class="btn" onclick="Sprawdz()">Zaloguj się</button>
                     <button type="button" class="btn" onclick="location.href='./register_panel.php';">Zarejestruj
                         się</button>
-                    <p class="paragraph">LUB</p>
-                    <button type="button" class="btn btn-fb">Zaloguj się za pomocą <img src="./images/facebook.svg"
-                            class="icon"></button>
-                    <button type="button" class="btn btn-google">Zaloguj się za pomocą <img
-                            src="./images/google.svg.png" class="icon"> </button>
+                    
                 </div>
             </form>
 
