@@ -32,7 +32,7 @@ if ($_SESSION['mylog'] == false) {
             <h1>Ulubione</h1>
         </div>
         <button class="nav_favourite-back" onclick="history.back();">
-            Powrót do katalogu
+            Powrót
         </button>
     </div>
     </div>
