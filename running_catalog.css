@@ -16,6 +16,9 @@
   margin-left: auto;
   background-color: #1d1919 !important;
 }
+.logout:hover {
+  background-color: rgb(29, 25, 25, 0.8) !important;
+}
 .sort_menu_option1 {
   grid-area: sort_menu_option1;
 }
@@ -116,9 +119,13 @@
   background: rgba(253, 219, 58, 0.8);
 }
 .nav_favourite-back {
-  background-color: rgb(67, 192, 123);
+  background-color: rgb(253, 219, 58);
   position: absolute;
   right: 0;
   height: 40px;
   margin-top: 40px;
+  color: black;
+}
+.nav_favourite-back:hover {
+  background: rgba(253, 219, 58, 0.8);
 }
